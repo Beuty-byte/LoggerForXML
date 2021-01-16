@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+    <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+
+        <param name="maxFileSize" value="10MB"/>
+        <param name="maxBackupIndex" value="2"/>
+        <param name="file" value="target/logfile_test.json"/>
+        <layout class="net.logstash.log4j.JSONEventLayoutV1"/>
+
+    </appender>
+
+
+
+    <category name="loggingInXML">
+        <!--all, trace, debug, info, warn, error, fatal-->
+        <priority value="all"/>
+        <appender-ref ref="fileAppender"/>
+    </category>
+
+</log4j:configuration>
