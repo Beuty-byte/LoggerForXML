@@ -31,6 +31,7 @@ public class App {
         for (int i = 0; i < Objects.requireNonNull(filesList).length; i++) {
             String buf = filesList[i].getName();
             System.out.print(buf + " -> ");
+            String oldFileName = buf;
 
             String[] fileName = buf.split("\\.");
             buf = fileName[0]+suffix+"."+fileName[1];
@@ -39,7 +40,7 @@ public class App {
 
 
             filesList[i].renameTo(new File(fileToChange + buf));
-            logger.info("file rename " + filesList[i].getName());
+            logger.info("file rename {} old file name {}", filesList[i].getName(),oldFileName);
 
         }
             logger.info("Application finish work");
